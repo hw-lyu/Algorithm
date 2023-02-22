@@ -11,7 +11,8 @@ function solution(A, B, C) {
 
 solution(6, 5, 11);
 
-// 전개구문을 활용하여 확장성 있게 최대 값을 구할 수도 있다. 
+// 나머지 매개변수 및 전개구문을 활용하여 
+// 확장성 있게 최대 값을 구할 수도 있다. 
 function solutionTwo(...nums) {
     return Math.max(...nums);
 }
