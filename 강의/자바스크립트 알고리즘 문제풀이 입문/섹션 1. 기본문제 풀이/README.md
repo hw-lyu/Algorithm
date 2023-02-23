@@ -19,3 +19,36 @@ function solutionTwo(...nums) {
 
 solutionTwo(11, 8, 3, 5, 25, 6, 7, 8);
 ```
+
+## 2. 삼각형 판별하기
+
+### 삼각형의 결정조건 
+  - 가장 긴변의 길이가 다른 두변의 길이의 합보다 크거나 같으면 삼각형으로 그릴 수 없다. 
+  - 세 변의 길이를 줬을 때 길이가 가장 긴 변의 길이는 다른 두변의 길이의 합보다 작아야 삼각형을 그릴 수 있다.
+  <br>( 1cm, 2cm, 2.99cm는 삼각형 가능)
+<br>[삼각형의 결정조건 - 글 출처](https://mathbang.net/92)
+
+### 코드
+  - 첫변째 줄에 'yes', 'no'를 출력한다.
+
+```javascript
+function solution(A,B,C) {
+    let maxNum = Math.max(A,B,C),
+        triangleArr = [A,B,C];
+    
+    let twoSides = triangleArr.reduce((acc, cur) => {
+       return acc + cur
+    });
+
+    // 삼각형의 세 변의 길이를 합산해서 제일 긴 변의 길이를 뺀다. 
+   twoSides -= maxNum;
+
+   if(maxNum < twoSides) {
+        return "yes";
+    } else {
+        return "no";
+    }
+}
+
+solution(6,7,11);
+```
