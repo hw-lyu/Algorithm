@@ -52,3 +52,24 @@ function solution(A,B,C) {
 
 solution(6,7,11);
 ```
+
+## 3. 연필개수 
+
+### 조건
+- 연필  1 다스 = 12자루
+- 학생 1인당 연필 1자루
+- n명 = 학생수 입력 -> 필요한 연필의 다스 수 계산하는 프로그램
+
+### 코드
+- 첫번째 줄에 필요한 다스 수를 출력한다.
+
+```javascript
+function solution(n) {
+    // 총 연필 갯수
+    let pencilOneCount = 12;
+            // (학생수 * 학생 1인당 연필 1자루 = 1) / 총 연필 갯수 
+    return Math.ceil((n * 1) / pencilOneCount);
+}
+
+solution(25)
+```
