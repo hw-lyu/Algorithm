@@ -71,5 +71,5 @@ function solution(n) {
     return Math.ceil((n * 1) / pencilOneCount);
 }
 
-solution(25)
+solution(25);
 ```
