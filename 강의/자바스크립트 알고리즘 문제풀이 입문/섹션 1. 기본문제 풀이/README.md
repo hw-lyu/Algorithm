@@ -74,7 +74,7 @@ function solution(n) {
 solution(25);
 ```
 
-### 4. 1부터 N까지 합 출력하기
+## 4. 1부터 N까지 합 출력하기
 - 1부터 N까지의 합을 출력한다.
 
 ```javascript
@@ -90,7 +90,7 @@ function solution(n) {
 solution(6);
 ```
 
-### 5. 최솟값 구하기 
+## 5. 최솟값 구하기 
 - 가장 작은 값을 출력한다.
 
 ```javascript
@@ -110,7 +110,7 @@ function solution(...num) {
 solution(5,3,7,11,2,15,17);
 ```
 
-### 6. 홀수
+## 6. 홀수
 - 홀수들의 합 / 홀수들 중 최소값을 출력한다.
 
 ```javascript
