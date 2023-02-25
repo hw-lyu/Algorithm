@@ -73,3 +73,19 @@ function solution(n) {
 
 solution(25);
 ```
+
+### 4. 1부터 N까지 합 출력하기
+- 1부터 N까지의 합을 출력한다.
+
+```javascript
+function solution(n) {
+    let num = 0;
+    for(let i = 1; i <= n; i++) {
+        num+=i;
+    }
+
+    return num;
+}
+
+solution(6);
+```
