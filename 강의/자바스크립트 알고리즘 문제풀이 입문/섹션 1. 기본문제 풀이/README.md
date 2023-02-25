@@ -109,3 +109,31 @@ function solution(...num) {
 
 solution(5,3,7,11,2,15,17);
 ```
+
+### 6. 홀수
+- 홀수들의 합 / 홀수들 중 최소값을 출력한다.
+
+```javascript
+function solution(...num) {
+    let arr = num,
+    oddArr = [],
+    oddNum = 0,
+    oddMinNum = 100;
+
+    arr.forEach(ele => {
+        if(ele % 2 === 1) {
+            oddArr.push(ele);
+            
+            oddNum += ele;
+            
+            if(ele < oddMinNum) oddMinNum = ele;
+        }
+    });
+
+    return '홀수 리스트 : ' + oddArr + ', 총합 : ' + oddNum + ', 홀수 최소값 : ' + oddMinNum
+}
+
+solution(12,77,38,41,53,92,85);
+// 홀수 리스트 : 77,41,53,85
+// 총합 : 256, 홀수 최소값 : 41
+```
