@@ -89,3 +89,23 @@ function solution(n) {
 
 solution(6);
 ```
+
+### 5. 최솟값 구하기 
+- 가장 작은 값을 출력한다.
+
+```javascript
+function solution(...num) {
+    let arr = num,
+        minNum = 100;
+    
+    arr.forEach((ele) => {
+        // 100을 기준으로 ele의 첫번째 값 5를 값에 대입하고 
+        // 그 후로 3<5,7<3.. 이런식으로 값을 비교하고 최소값을 대입해준다. 
+        if(ele < minNum) minNum = ele;
+    });
+
+    return minNum;
+}
+
+solution(5,3,7,11,2,15,17);
+```
