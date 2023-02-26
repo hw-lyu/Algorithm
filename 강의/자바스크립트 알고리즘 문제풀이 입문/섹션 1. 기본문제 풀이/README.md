@@ -130,10 +130,40 @@ function solution(...num) {
         }
     });
 
-    return '홀수 리스트 : ' + oddArr + ', 총합 : ' + oddNum + ', 홀수 최소값 : ' + oddMinNum
+    return '홀수 리스트 : ' + oddArr + ', 총합 : ' + oddNum + ', 홀수 최소값 : ' + oddMinNum;
 }
 
 solution(12,77,38,41,53,92,85);
 // 홀수 리스트 : 77,41,53,85
 // 총합 : 256, 홀수 최소값 : 41
+```
+
+## 7. 10부제
+
+### 조건
+- 자동차 10부제
+- 조건 : 자동차 번호의 일의 자리 숫자와 날짜의 일의 자리 숫자가 일치하면 해당 자동차의 운행을 금지 
+<br> ex. 자동차 번호의 일의 자리 숫자가 7이면 7일, 17일, 27일 운행 금지 
+<br> 자동차 번호의 일의 자리 숫자가 0이면 10일,20일,30일 금지
+
+### 코드
+- 날짜의 일의 자리 숫자가 주어지고 7대의 자동차 번호의 끝 두자리 수가 주어졌을 때 위반하는 자동차의 대수를 출력하라
+
+```javascript
+function solution(day,...carNum) {
+    let carNumArr = carNum,
+        carArr = [];
+
+    carNumArr.forEach(ele => {
+        // 날짜의 일의 자리와 자동차 번호의 일의 자리가 일치하면 자동차 운행을 금지하므로
+        // day에 맞는 배열의 자동차 번호를 찾아 위반하는 자동차 대수를 찾음 
+        if(String(ele).includes(day)) {
+            carArr.push(ele);
+        }
+    })
+
+    return carArr.length;
+}
+
+solution(0,12,20,54,30,87,91,30);
 ```
