@@ -166,4 +166,17 @@ function solution(day,...carNum) {
 }
 
 solution(0,12,20,54,30,87,91,30);
+
+// case
+function solutionTwo(day,...carNum) {
+  let carNumArr = carNum,
+          carArr = [];
+
+  // filter로 나머지 연사자를 이용해 해당 일에 해당하는 배열을 구한다. 
+  return carNumArr.filter(ele => {
+    return ele % 10 === day
+  }).length
+}
+
+solutionTwo(0,12,20,54,30,87,91,30);
 ```
