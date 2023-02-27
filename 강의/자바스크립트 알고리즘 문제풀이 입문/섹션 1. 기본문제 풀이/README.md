@@ -208,7 +208,7 @@ function solution(...nums) {
     // 100의 합계가 맞으면 splice로 해당 index를 제거한다.
     // ⭐ 경우의 수는 이렇게 이중 포문으로 각각의 값을 구하여 더할 수 있다.
     // 항상 경우의 수를 더할 때 생각해봐야할 것 같다.
-  
+
     for (let i = 0; i < 8; i++) {
         for (let j = i + 1; j < 9; j++) {
             if ((sum - (arr[i] + arr[j])) === 100) {
@@ -222,4 +222,36 @@ function solution(...nums) {
 }
 
 solution(20, 7, 23, 19, 10, 15, 25, 8, 13);
+
+// case
+function solutionTwo(...nums) {
+    let total = nums.reduce((a, b) => a + b),
+        arr = nums;
+
+    // 재귀함수를 통해 일곱 난쟁이의 키 출력하는 함수를 구현해보았다.
+    // 이중 포문 말고도 다른 방법이 무엇이 있을까 찾아보다가 구현 해보았다. 
+    function recursion(n = 0, s = n + 1) {
+        if (n === 9) return;
+
+        for (let i = s; i < 9; i++) {
+            if ((total - (arr[n] + arr[i])) === 100) {
+                if (n < i) {
+                    arr.splice(i, 1);
+                    arr.splice(n, 1);
+                } else {
+                    arr.splice(n, 1);
+                    arr.splice(i, 1);
+                }
+            }
+        }
+
+        return recursion(++n, n + 1);
+    }
+
+    recursion();
+
+    return arr;
+}
+
+solutionTwo(20, 7, 23, 19, 10, 15, 25, 8, 13);
 ```
