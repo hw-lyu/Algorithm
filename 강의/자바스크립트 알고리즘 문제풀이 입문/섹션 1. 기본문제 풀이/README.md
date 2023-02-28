@@ -255,3 +255,45 @@ function solutionTwo(...nums) {
 
 solutionTwo(20, 7, 23, 19, 10, 15, 25, 8, 13);
 ```
+
+## 9. A를 #으로
+
+```javascript
+// case 1 
+function solution(str) {
+    let string = [...str];
+
+    for (let i = 0, len = string.length; i < len; i++) {
+        if (string[i] === 'A') {
+            string[i] = '#';
+        }
+    }
+
+    return string.join('');
+}
+
+solution('BANANA');
+
+// case 2
+function solutionTwo(str) {
+    let string = str;
+
+    return string.replaceAll('A', '#');
+}
+
+solutionTwo('BANANA');
+
+// case 3
+
+function solutionThree(str) {
+    let string = [...str];
+
+    let s = string.map((ele, idx) => {
+        return ele === 'A' ? '#' : ele;
+    });
+
+    return s.join('');
+}
+
+solutionThree('BANANA');
+```
