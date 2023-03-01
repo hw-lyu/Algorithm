@@ -323,11 +323,10 @@ solution('R', 'COMPUTERPROGRAMMING');
 // case 2 
 function solutionTwo(character, string) {
     let char = character,
-        str = string.split('');
-
-    let strLenArr = str.filter(ele => {
-        return ele === char;
-    });
+        str = string.split(''),
+        strLenArr = str.filter(ele => {
+            return ele === char;
+        });
 
     return strLenArr.length;
 }
