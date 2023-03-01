@@ -297,3 +297,40 @@ function solutionThree(str) {
 
 solutionThree('BANANA');
 ```
+
+## 10. 문자 찾기
+
+### 조건
+
+- 한 개의 문자열 입력, 특정 문자를 입력 받아 해당 특정 문자가 입력받은 문자열에 몇개 존재하는지 알아내자
+
+### 코드
+
+- 해당 문자의 개수를 출력
+
+```javascript
+// case 1
+function solution(character, string) {
+    let char = character,
+        re = new RegExp(`${char}`, 'g'),
+        str = string.match(re);
+
+    return str.length;
+}
+
+solution('R', 'COMPUTERPROGRAMMING');
+
+// case 2 
+function solutionTwo(character, string) {
+    let char = character,
+        str = string.split('');
+
+    let strLenArr = str.filter(ele => {
+        return ele === char;
+    });
+
+    return strLenArr.length;
+}
+
+solutionTwo('R', 'COMPUTERPROGRAMMING');
+```
