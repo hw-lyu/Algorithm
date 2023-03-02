@@ -333,3 +333,15 @@ function solutionTwo(character, string) {
 
 solutionTwo('R', 'COMPUTERPROGRAMMING');
 ```
+
+## 11.대문자 찾기
+
+```javascript
+function solution(string) {
+    let str = string;
+
+    return str.match(/[A-Z]/g).length;
+}
+
+solution('KoreaTimeGood');
+```
