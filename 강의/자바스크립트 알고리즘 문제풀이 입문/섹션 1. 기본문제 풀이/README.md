@@ -345,3 +345,32 @@ function solution(string) {
 
 solution('KoreaTimeGood');
 ```
+
+## 12. 대문자로 통일
+
+```javascript
+function solution(string) {
+    let str = Array.from(string);
+
+    let upperCaseArr = str.map((ele, idx) => {
+        let code = string.charCodeAt((ele, idx));
+        if (97 <= code && code <= 122) {
+            //16진수 변환 후 앞의 숫자 -2 빼기 
+            let hexadecimalArr = code.toString(16).split('');
+
+            hexadecimalArr[0] -= 2;
+
+            // 
+            let decimalStr = parseInt(hexadecimalArr.join(''), 16);
+
+            ele = String.fromCharCode(decimalStr);
+        }
+
+        return ele;
+    });
+
+    return upperCaseArr.join('');
+}
+
+solution('ItisTimeToStudy');
+```
