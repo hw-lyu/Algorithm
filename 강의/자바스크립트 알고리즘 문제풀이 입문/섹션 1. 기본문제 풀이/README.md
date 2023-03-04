@@ -374,3 +374,41 @@ function solution(string) {
 
 solution('ItisTimeToStudy');
 ```
+### 13. 대소문자로 변환
+
+```javascript
+    function solution(string) {
+            let strArr = string.split(''),
+                capitalizeArr = strArr.map((ele,idx) => {
+                let charCode = string.charCodeAt(idx),
+                    hex = charCode.toString(16),
+                    hexArr = hex.split('');
+
+                    //10진수 - 65-90 대문자 | 97-122 소문자
+                    // 대문자 구분
+                    if(65 <= charCode && charCode <= 90) {
+                        // 16진수 -> 소문자/대문자 변환
+                        hexArr[0] = +hexArr[0] + 2;
+
+                        // 10진수
+                        let decimal = parseInt(hexArr.join(''), 16);
+
+                        ele = String.fromCharCode(decimal);
+                    } else if (97 <= charCode && charCode <= 122) {
+                        // 16진수 -> 소문자/대문자 변환
+                        hexArr[0] = +hexArr[0] - 2;
+
+                        // 10진수
+                        let decimal = parseInt(hexArr.join(''), 16);
+
+                        ele = String.fromCharCode(decimal);
+                    }
+
+                    return ele;
+            });
+
+            return capitalizeArr.join('');
+    }
+
+    solution('StuDY');
+```
