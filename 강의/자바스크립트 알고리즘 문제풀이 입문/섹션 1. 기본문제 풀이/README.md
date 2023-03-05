@@ -374,41 +374,71 @@ function solution(string) {
 
 solution('ItisTimeToStudy');
 ```
+
 ### 13. 대소문자로 변환
 
 ```javascript
-    function solution(string) {
-            let strArr = string.split(''),
-                capitalizeArr = strArr.map((ele,idx) => {
-                let charCode = string.charCodeAt(idx),
-                    hex = charCode.toString(16),
-                    hexArr = hex.split('');
+// case 1
+function solution(string) {
+    let strArr = string.split(''),
+        capitalizeArr = strArr.map((ele, idx) => {
+            let charCode = string.charCodeAt(idx),
+                hex = charCode.toString(16),
+                hexArr = hex.split('');
 
-                    //10진수 - 65-90 대문자 | 97-122 소문자
-                    // 대문자 구분
-                    if(65 <= charCode && charCode <= 90) {
-                        // 16진수 -> 소문자/대문자 변환
-                        hexArr[0] = +hexArr[0] + 2;
+            //10진수 - 65-90 대문자 | 97-122 소문자
+            // 대문자 구분
+            if (65 <= charCode && charCode <= 90) {
+                // 16진수 -> 소문자/대문자 변환
+                hexArr[0] = +hexArr[0] + 2;
 
-                        // 10진수
-                        let decimal = parseInt(hexArr.join(''), 16);
+                // 10진수
+                let decimal = parseInt(hexArr.join(''), 16);
 
-                        ele = String.fromCharCode(decimal);
-                    } else if (97 <= charCode && charCode <= 122) {
-                        // 16진수 -> 소문자/대문자 변환
-                        hexArr[0] = +hexArr[0] - 2;
+                ele = String.fromCharCode(decimal);
+            } else if (97 <= charCode && charCode <= 122) {
+                // 16진수 -> 소문자/대문자 변환
+                hexArr[0] = +hexArr[0] - 2;
 
-                        // 10진수
-                        let decimal = parseInt(hexArr.join(''), 16);
+                // 10진수
+                let decimal = parseInt(hexArr.join(''), 16);
 
-                        ele = String.fromCharCode(decimal);
-                    }
+                ele = String.fromCharCode(decimal);
+            }
 
-                    return ele;
-            });
+            return ele;
+        });
 
-            return capitalizeArr.join('');
+    return capitalizeArr.join('');
+}
+
+solution('StuDY');
+
+// case 2 
+function solutionTwo(string) {
+    let str = string.split(''),
+        capitalizeArr = [];
+
+    for (let i = 0; i < str.length; i++) {
+        // code : idx에서 UTF-16 코드 단위를 나타내는 정수 반환 
+        // cap : 대소문자 변환 10진수 'a'와 'A'는 32 차이이다. 대문자 'A'값 97을 기준으로 97이 더 클 때 +32 97보다 적을 때 -32 해준다. 
+        let code = string.charCodeAt(i),
+            cap = code < 97 ? 32 : -32;
+
+        // 문자열만 입력하게끔 조건식 
+        if ((!(65 <= code && code <= 122) || (91 <= code && code <= 95))) {
+            alert('문자열만 입략해주세요.');
+            return false;
+        }
+
+
+        // fromCharCode 메서드는 지정된 UTF-16 코드 단위 시퀀스에서 생성된 문자열을 반환
+        capitalizeArr.push(String.fromCharCode(code + cap));
     }
 
-    solution('StuDY');
+    return capitalizeArr.join('');
+
+}
+
+solutionTwo('StuDYazsSS');
 ```
