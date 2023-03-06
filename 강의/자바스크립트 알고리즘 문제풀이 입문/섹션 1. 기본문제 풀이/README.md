@@ -442,3 +442,24 @@ function solutionTwo(string) {
 
 solutionTwo('StuDYazsSS');
 ```
+
+## 14. 가장 긴 문자열
+
+```javascript
+function solution(...string) {
+    let strArr = string,
+        str = '',
+        strLen = 0;
+
+    for (let i = 0, len = strArr.length; i < len; i++) {
+        if (strLen < strArr[i].length) {
+            str = strArr[i];
+            strLen = strArr[i].length;
+        }
+    }
+
+    return str;
+}
+
+solution('teacher', 'time', 'student', 'beautiful', 'good');
+```
