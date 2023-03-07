@@ -159,6 +159,7 @@ solution(12, 77, 38, 41, 53, 92, 85);
 - 날짜의 일의 자리 숫자가 주어지고 7대의 자동차 번호의 끝 두자리 수가 주어졌을 때 위반하는 자동차의 대수를 출력하라
 
 ```javascript
+// case 1
 function solution(day, ...carNum) {
     let carNumArr = carNum,
         carArr = [];
@@ -176,7 +177,7 @@ function solution(day, ...carNum) {
 
 solution(0, 12, 20, 54, 30, 87, 91, 30);
 
-// case
+// case 2
 function solutionTwo(day, ...carNum) {
     let carNumArr = carNum;
 
@@ -462,4 +463,33 @@ function solution(...string) {
 }
 
 solution('teacher', 'time', 'student', 'beautiful', 'good');
+```
+
+## 15. 가운데 문자 출력
+
+```javascript
+// case 1 
+function solution(string) {
+    let strArr = string.split(''),
+        strLen = strArr.length,
+        centerStrIdx = Math.floor(strLen / 2);
+
+    if (strLen % 2 === 0) {
+        return `${strArr[centerStrIdx - 1] + strArr[centerStrIdx]}`;
+    } else {
+        return `${strArr[centerStrIdx]}`;
+    }
+}
+
+solution('good');
+
+// case 2 
+function solutionTwo(string) {
+    let strLen = string.length,
+        centerStrIdx = Math.floor(strLen / 2);
+
+    return strLen % 2 === 0 ? string.substring(centerStrIdx - 1, centerStrIdx + 1) : string.substring(centerStrIdx, centerStrIdx + 1);
+}
+
+solutionTwo('study');
 ```
