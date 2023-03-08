@@ -493,3 +493,21 @@ function solutionTwo(string) {
 
 solutionTwo('study');
 ```
+
+## 16. 중복문자제거(indexOf)
+
+```javascript
+function solution(string) {
+    let strArr = string.split(''),
+        disStr = '';
+
+    strArr.forEach(ele => {
+        // indxOf 반환 값이 -1일시 중복되지 않은 문자로 판단.
+        disStr.indexOf(ele) === -1 ? disStr += ele : '';
+    });
+
+    return disStr;
+}
+
+solution('ksekkset');
+```
