@@ -515,6 +515,7 @@ solution('ksekkset');
 ## 17. 중복단어 제거
 
 ```javascript
+// case 1 
 function solution(...string) {
     let strArr = string,
         disArr = [];
@@ -529,4 +530,16 @@ function solution(...string) {
 }
 
 solution('good', 'time', 'good', 'time', 'student');
+
+// case 2 
+function solutionTwo(...string) {
+    let strArr = string,
+        disArr = strArr.filter((ele, idx) => {
+            return strArr.indexOf(ele) === idx;
+        });
+
+    return disArr;
+}
+
+solutionTwo('good', 'time', 'good', 'time', 'student');
 ```
