@@ -511,3 +511,22 @@ function solution(string) {
 
 solution('ksekkset');
 ```
+
+## 17. 중복단어 제거
+
+```javascript
+function solution(...string) {
+    let strArr = string,
+        disArr = [];
+
+    for (let i = 0, len = strArr.length; i < len; i++) {
+        let strEle = strArr[i];
+
+        if (disArr.indexOf(strEle) === -1) disArr.push(strEle);
+    }
+
+    return disArr;
+}
+
+solution('good', 'time', 'good', 'time', 'student');
+```
