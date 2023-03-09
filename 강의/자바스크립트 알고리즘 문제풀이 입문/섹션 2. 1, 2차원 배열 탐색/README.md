@@ -6,6 +6,7 @@
 - 자신의 바로 앞 수보다 큰 수만 한 줄로 출력한다.
 
 ```javascript
+// case 1
 function solution(...nums) {
     let numArr = nums,
         maxArr = [];
@@ -16,6 +17,22 @@ function solution(...nums) {
     }
 
     return maxArr.reverse();
+}
+
+solution(7, 8, 9, 5, 6, 12);
+// [7, 8, 9, 6, 12]
+
+// case 2 
+function solution(...nums) {
+    let maxArr = [];
+
+    maxArr.push(nums[0]);
+
+    for (let i = 1, len = nums.length; i < len; i++) {
+        if (nums[i - 1] < nums[i]) maxArr.push(nums[i])
+    }
+
+    return maxArr;
 }
 
 solution(7, 8, 9, 5, 6, 12);
