@@ -11,13 +11,13 @@ function solution(...nums) {
         maxArr = [];
 
     for (let i = 0, len = numArr.length - 1; i < len; len--) {
+        if (numArr[len - 1] < numArr[len]) maxArr.push(numArr[len]);
         if (len === 1) maxArr.push(numArr[len - 1]);
-        if (len !== 1 && numArr[len - 1] < numArr[len]) maxArr.push(numArr[len]);
     }
 
     return maxArr.reverse();
 }
 
-solution(7, 3, 9, 5, 6, 12);
-// [7, 9, 6, 12]
+solution(7, 8, 9, 5, 6, 12);
+// [7, 8, 9, 6, 12]
 ```
