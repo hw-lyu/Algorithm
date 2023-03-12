@@ -137,3 +137,30 @@ function solution(...nums) {
 
 solution(1, 0, 1, 1, 1, 0, 0, 1, 1, 0); // 10
 ```
+
+## 등수 구하기
+
+- 조건
+    - 같은 점수가 입력될 경우 높은 등수로 동일 처리
+    - 가장 높은 점수가 92점이고 1등이 3명이면 그 다음 학생은 4등이 된다.
+- 각 학생의 등수를 입력된 순서대로 출력
+
+```javascript
+function solution(...nums) {
+    // 해당 배열을 sort
+    let sort = [...nums].sort(function (a, b) {
+            return b - a;
+        }),
+        rank = nums.map(ele => {
+            return sort.indexOf(ele) + 1;
+        });
+    // 현재 입력된 순서의 배열(nums)을 loop 돌림
+    // nums ele을 통해 sort index를 가져와 매칭하고 값 반환
+    // indexOf()는 첫번째 index만 반환하여 가져오기 때문에 등수 처리 동일하게 가능 
+
+    return rank.join(' ');
+}
+
+solution(87, 89, 92, 100, 76); // '4 3 2 1 5'
+// solution(87, 100, 89, 92, 100, 76, 99, 85, 87) -> '6 1 5 4 1 9 3 8 6' 반환 
+```
