@@ -146,6 +146,7 @@ solution(1, 0, 1, 1, 1, 0, 0, 1, 1, 0); // 10
 - 각 학생의 등수를 입력된 순서대로 출력
 
 ```javascript
+// case 1 
 function solution(...nums) {
     // 해당 배열을 sort
     let sort = [...nums].sort(function (a, b) {
@@ -163,4 +164,23 @@ function solution(...nums) {
 
 solution(87, 89, 92, 100, 76); // '4 3 2 1 5'
 // solution(87, 100, 89, 92, 100, 76, 99, 85, 87) -> '6 1 5 4 1 9 3 8 6' 반환 
+
+// case 2
+function solutionTwo(...nums) {
+    let n = nums.length,
+        rank = Array.from({length: n}, () => 1);
+    // 1 값을 반환한 배열 (갯수는 length n개) 
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            // nums[i]보다 nums[j]이 크면 rank[i]의 값 증가 
+            if (nums[i] < nums[j]) rank[i]++;
+        }
+    }
+
+    return rank.join(' ');
+}
+
+solutionTwo(87, 100, 89, 92, 100, 76, 87);
+// '5 1 4 3 1 7 5'
 ```
