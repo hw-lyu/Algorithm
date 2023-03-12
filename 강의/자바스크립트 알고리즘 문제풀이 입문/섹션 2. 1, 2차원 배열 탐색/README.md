@@ -156,7 +156,7 @@ function solution(...nums) {
         });
     // 현재 입력된 순서의 배열(nums)을 loop 돌림
     // nums ele을 통해 sort index를 가져와 매칭하고 값 반환
-    // indexOf()는 첫번째 index만 반환하여 가져오기 때문에 등수 처리 동일하게 가능 
+    // indexOf()는 배열에서 지정된 요소를 찾을 수 있는 첫번째 index만 반환하여 가져오기 때문에 등수 처리 동일하게 가능 
 
     return rank.join(' ');
 }
