@@ -138,7 +138,7 @@ function solution(...nums) {
 solution(1, 0, 1, 1, 1, 0, 0, 1, 1, 0); // 10
 ```
 
-## 등수 구하기
+## 5. 등수 구하기
 
 - 조건
     - 같은 점수가 입력될 경우 높은 등수로 동일 처리
@@ -183,4 +183,62 @@ function solutionTwo(...nums) {
 
 solutionTwo(87, 100, 89, 92, 100, 76, 87);
 // '5 1 4 3 1 7 5'
+```
+
+## 6. 격자판 최대합
+
+- 조건
+    - N*N 격자판이 주어지면 각 행의 합, 각 열의 합, 두 대각선의 합중 가장 큰 합을 출력하라
+- 경우의 수 구하기
+    - 각 행의 합
+        - 00 01 02 03 04 ... -> 포문으로 각 행 더하기
+    - 각 열의 합
+        - 00 10 20 30 40
+        - 01 11 21 31 41
+        - 02 12 22 32 42
+        - 03 13 23 33 43
+        - 04 14 24 34 44
+    - 두 대각선의 합
+        - 00 11 22 33 44
+        - 40 31 22 13 04
+
+```javascript
+function solution(arr) {
+    let arrLen = arr.length,
+        leftDiagonalSum = 0,
+        rightDiagonalSum = 0,
+        columnSumArr = Array.from({length: arrLen}, () => 0),
+        rowSumArr = Array.from({length: arrLen}, () => 0),
+        colMaxNum = 0,
+        rowMaxNum = 0;
+
+
+    for (let i = 0, len = arrLen; i < len; i++) {
+        let reverseOrder = (arrLen - 1) - i;
+
+        // 대각선 
+        leftDiagonalSum += arr[i][i];
+        rightDiagonalSum += arr[reverseOrder][i];
+
+        for (let o = 0; o < arrLen; o++) {
+            // 열과 행의 합 구하기
+            columnSumArr[i] += arr[o][i];
+            rowSumArr[i] += arr[i][o];
+        }
+
+        if (colMaxNum < columnSumArr[i]) colMaxNum = columnSumArr[i];
+        if (rowMaxNum < rowSumArr[i]) rowMaxNum = rowSumArr[i];
+    }
+
+    return Math.max(leftDiagonalSum, rightDiagonalSum, colMaxNum, rowMaxNum);
+}
+
+solution([
+    [10, 13, 10, 12, 15],
+    [12, 39, 30, 23, 11],
+    [11, 25, 50, 53, 15],
+    [19, 27, 29, 37, 27],
+    [19, 13, 30, 13, 19]
+]);
+// 155 
 ```
