@@ -242,3 +242,47 @@ solution([
 ]);
 // 155 
 ```
+
+## 7. 봉우리
+
+- 조건
+  - 지도 정보가 N*N 격자판에 주어진다. 각 격자에는 지역의 높이가 쓰여있다.
+  - 각 격자판의 숫자 중 자신의 상하좌우 숫자보다 큰 숫자는 봉우리 지역이다.
+  - 격자의 가장자리는 0으로 초기화 되었다 가정한다.
+  - 만약 N=5이고, 격자판의 숫자가 다음과 같다면 봉우리의 개수는 10개이다.
+  - 봉우리 지역이 몇개인지 알아내는 프로그램을 작성하라.
+
+```javascript
+function solution(arr) {
+    let arrLen = arr.length,
+        standardArr = [];
+
+    for (let i = 0; i < arrLen; i++) {
+        for (let o = 0; o < arrLen; o++) {
+            // 0은 제외하고 숫자 있는 부분만 남겨둔다. 
+            if (arr[i][o] === 0 || arr[o][i] === 0) continue;
+            // 순서의 기준 : 상 하 좌 우 | 숫자의 기준 : arr[i][o]
+            let positionArr = [arr[i - 1][o], arr[i + 1][o], arr[i][o - 1], arr[i][o + 1]],
+                standardNum = arr[i][o];
+
+            // positionArr의 최대 숫자와 기준점이 되는 standardNum 숫자 비교 
+            if (Math.max(...positionArr) < standardNum) {
+                standardArr.push(standardNum);
+            }
+        }
+    }
+
+    return standardArr.join(' ');
+}
+
+solution([
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 5, 3, 7, 2, 3, 0],
+    [0, 3, 7, 1, 6, 1, 0],
+    [0, 7, 2, 5, 3, 4, 0],
+    [0, 4, 3, 6, 4, 1, 0],
+    [0, 8, 7, 3, 5, 2, 0],
+    [0, 0, 0, 0, 0, 0, 0]
+]);
+// '5 7 3 7 6 7 4 6 8 5'
+```
