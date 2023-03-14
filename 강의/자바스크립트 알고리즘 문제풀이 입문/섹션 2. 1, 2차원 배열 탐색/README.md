@@ -272,7 +272,7 @@ function solution(arr) {
         }
     }
 
-    return standardArr.join(' ');
+    return standardArr.length;
 }
 
 solution([
@@ -284,5 +284,5 @@ solution([
     [0, 8, 7, 3, 5, 2, 0],
     [0, 0, 0, 0, 0, 0, 0]
 ]);
-// '5 7 3 7 6 7 4 6 8 5'
+// 10
 ```
