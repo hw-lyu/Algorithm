@@ -17,5 +17,5 @@ function solution(str) {
     return lowerStr.endsWith(lowerStr.charAt(0)) ? "YES" : "NO";
 }
 
-solution('gooG'); //true
+solution('gooG'); // "YES"
 ```
