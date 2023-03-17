@@ -50,7 +50,7 @@ function solution(str) {
 solution('found7, time: study; Yduts; emit, 7Dnuof'); // YES
 
 // case 2
-function solution(str) {
+function solutionTwo(str) {
     let strRegExp = str.toLowerCase().replace(/[^a-z]/g, '');
 
     if (strRegExp.split('').reverse().join('') !== strRegExp) {
@@ -60,5 +60,5 @@ function solution(str) {
     return "YES";
 }
 
-solution('found7, time: study; Yduts; emit, 7Dnuof'); // YES
+solutionTwo('found7, time: study; Yduts; emit, 7Dnuof'); // YES
 ```
