@@ -32,6 +32,7 @@ solution('gooG'); // "YES"
     - 아니면 : “NO”
 
 ```javascript
+// case 1 
 function solution(str) {
     let strRegExp = str.toLowerCase().match(/[a-zA-z]+/g),
         strOriginalArr = strRegExp.slice(0, strRegExp.length / 2),
@@ -44,6 +45,19 @@ function solution(str) {
     }
 
     return strOriginalArr.join(' ') === strReverseArr.join(' ') ? "YES" : "NO";
+}
+
+solution('found7, time: study; Yduts; emit, 7Dnuof'); // YES
+
+// case 2
+function solution(str) {
+    let strRegExp = str.toLowerCase().replace(/[^a-z]/g, '');
+
+    if (strRegExp.split('').reverse().join('') !== strRegExp) {
+        return "NO";
+    }
+
+    return "YES";
 }
 
 solution('found7, time: study; Yduts; emit, 7Dnuof'); // YES
