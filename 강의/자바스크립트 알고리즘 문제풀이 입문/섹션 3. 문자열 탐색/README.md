@@ -1,13 +1,14 @@
 # 문제풀이
 
 ## 1.회문문자열
+
 - 회문 문자열 : 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열
 - 조건
-  - 회문을 검사할 때 대소문자 구분하지 않는다.
+    - 회문을 검사할 때 대소문자 구분하지 않는다.
 - 반환값
     - 회문 문자열이면 :  “YES”
     - 회문 문자열이 아니면 : “NO”
-    
+
 ```javascript
 function solution(str) {
     let lowerStr = str.toLowerCase();
@@ -18,4 +19,32 @@ function solution(str) {
 }
 
 solution('gooG'); // "YES"
+```
+
+## 2.팰린드롬
+
+- 팰린드롬 : 앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열
+- 회문을 검사할 때 알파벳만 가지고 회문을 검사하며, 대소문자 구분하지 않는다.
+- 알파벳 이외의 문자들은 무시합니다.
+- 첫 번째 줄에 팰린드롬인지의 결과를 YES 또는 NO로 출력합니다.
+- 반환 값
+    - 해당 문자열이 팰린드롬이면 : “YES”
+    - 아니면 : “NO”
+
+```javascript
+function solution(str) {
+    let strRegExp = str.toLowerCase().match(/[a-zA-z]+/g),
+        strOriginalArr = strRegExp.slice(0, strRegExp.length / 2),
+        strReverseArr = strRegExp.slice(strRegExp.length / 2).reverse();
+
+    for (let i = 0, len = strReverseArr.length; i < len; i++) {
+        let strReverse = strReverseArr[i].split('').reverse().join('');
+
+        strReverseArr[i] = strReverse;
+    }
+
+    return strOriginalArr.join(' ') === strReverseArr.join(' ') ? "YES" : "NO";
+}
+
+solution('found7, time: study; Yduts; emit, 7Dnuof'); // YES
 ```
