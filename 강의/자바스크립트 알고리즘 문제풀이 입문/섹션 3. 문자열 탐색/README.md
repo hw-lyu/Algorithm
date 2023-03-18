@@ -34,7 +34,7 @@ solution('gooG'); // "YES"
 ```javascript
 // case 1 
 function solution(str) {
-    let strRegExp = str.toLowerCase().match(/[a-zA-z]+/g),
+    let strRegExp = str.toLowerCase().match(/[a-z]+/g),
         strOriginalArr = strRegExp.slice(0, strRegExp.length / 2),
         strReverseArr = strRegExp.slice(strRegExp.length / 2).reverse();
 
