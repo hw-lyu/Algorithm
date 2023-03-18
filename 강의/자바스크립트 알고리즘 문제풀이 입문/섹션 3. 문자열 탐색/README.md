@@ -62,3 +62,29 @@ function solutionTwo(str) {
 
 solutionTwo('found7, time: study; Yduts; emit, 7Dnuof'); // YES
 ```
+
+### 3. 숫자만 추출
+- 문자와 숫자가 섞여있는 문자열이 주어지면 그 중 숫자만 추출하여 그 순서대로 자연수를 만든다. <br>
+만약 “tae0a1h205er”에서 숫자만 추줄하면 0,1,2,0,5이고 이것을 자연수로 만들면 1205가 된다. 
+- 첫 줄에 자연수를 출력합니다.
+
+```javascript
+// case 1 
+function solution(str) {
+    let arr = str.split(''),
+        numArr = arr.filter(ele => {
+        return !isNaN(ele);
+    });
+
+    return parseInt(numArr.join(''));
+}
+
+solution('g0en2T0s8eSOft'); //208
+
+// case 2
+function solutionTwo(str) {
+  return parseInt(str.match(/\d/g).join(''));
+}
+
+solutionTwo('g0en2T0s8eSOft'); //208
+```
