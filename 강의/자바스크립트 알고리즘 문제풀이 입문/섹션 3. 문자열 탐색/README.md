@@ -64,8 +64,9 @@ solutionTwo('found7, time: study; Yduts; emit, 7Dnuof'); // YES
 ```
 
 ### 3. 숫자만 추출
+
 - 문자와 숫자가 섞여있는 문자열이 주어지면 그 중 숫자만 추출하여 그 순서대로 자연수를 만든다. <br>
-만약 “tae0a1h205er”에서 숫자만 추줄하면 0,1,2,0,5이고 이것을 자연수로 만들면 1205가 된다. 
+  만약 “tae0a1h205er”에서 숫자만 추줄하면 0,1,2,0,5이고 이것을 자연수로 만들면 1205가 된다.
 - 첫 줄에 자연수를 출력합니다.
 
 ```javascript
@@ -73,8 +74,8 @@ solutionTwo('found7, time: study; Yduts; emit, 7Dnuof'); // YES
 function solution(str) {
     let arr = str.split(''),
         numArr = arr.filter(ele => {
-        return !isNaN(ele);
-    });
+            return !isNaN(ele);
+        });
 
     return parseInt(numArr.join(''));
 }
@@ -83,8 +84,56 @@ solution('g0en2T0s8eSOft'); //208
 
 // case 2
 function solutionTwo(str) {
-  return parseInt(str.match(/\d/g).join(''));
+    return parseInt(str.match(/\d/g).join(''));
 }
 
 solutionTwo('g0en2T0s8eSOft'); //208
+```
+
+## 4. 문자거리
+
+- 한 개의 문자열 s와 문자 t가 주어지면 문자열 s의 각 문자가 문자 t와 떨어진 최소거리를 출력하는 프로그램을 작성
+- 반환 값
+    - 첫번 째 줄에 각 문자열 s의 각 문자가 문자 t와 떨어진 거리를 순서대로 출력한다.
+
+```javascript
+function solution(str) {
+    let arr = str.split(' '),
+        standardStr = arr[1],
+        strArr = arr[0].split(''),
+        lenLeftArr = [],
+        lenRightArr = [],
+        num = 0;
+
+    // 정방향과 반대방향을 비교하여 최소 거리를 구해준다. 
+    strArr.map(ele => {
+        if (ele === standardStr) {
+            num = 0;
+            lenLeftArr.push(num);
+        } else {
+            lenLeftArr.push(++num);
+        }
+    });
+
+
+    strArr.reverse().map(ele => {
+        if (ele === standardStr) {
+            num = 0;
+            lenRightArr.push(num);
+        } else {
+            lenRightArr.push(++num);
+        }
+    });
+
+    // lenLeftArr를 기준으로 값을 비교해 최소 거리를 구한다. 
+    lenRightArr.reverse().map((ele, idx) => {
+        if (ele < lenLeftArr[idx]) {
+            lenLeftArr[idx] = ele;
+        }
+    });
+
+    return lenLeftArr.join(' ');
+}
+
+solution('teachermode e'); //'1 0 1 2 1 0 1 2 2 1 0'
 ```
