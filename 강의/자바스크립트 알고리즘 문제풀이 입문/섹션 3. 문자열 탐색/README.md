@@ -137,3 +137,30 @@ function solution(str) {
 
 solution('teachermode e'); //'1 0 1 2 1 0 1 2 2 1 0'
 ```
+
+## 5. 문자열 압축
+
+- 알파벳 대문자로 이루어진 문자열을 입력받아 같은 문자가 연속으로 반복되는 경우<br>
+  반복되는 문자 바로 오른쪽에 반복 횟수를 표기하는 방법으로 문자열을 압축하는 프로그램을 작성하라
+- 단 반복횟수가 1인 경우 생략.
+- 반환값
+    - 첫 줄에 압축된 문자열을 출력한다.
+
+```javascript
+function solution(str) {
+    // 중복되는 값을 제거한 배열을 생성 : set
+    // set을 map 메서드의 매개변수인 ele로 해당 알파벳에 해당하는 값을
+    // str.match 메서드 안에서 정규식을 통해 반환 값을 찾고 (match 반환 값은 배열으로 온다.)
+    // length로 받아 조건식에 따른 map 메서드 반환 값 처리 
+    let set = [...new Set(str.split(''))],
+        arr = set.map(ele => {
+            let len = str.match(new RegExp(`${ele}`, 'g')).length;
+
+            return len === 1 ? ele : `${ele + len}`;
+        });
+
+    return arr.join('');
+}
+
+solution('KKHSSSSSSSE'); // 'K2HS7E'
+```
